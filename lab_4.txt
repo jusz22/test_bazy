@@ -1,0 +1,38 @@
+LAB 3
+
+Zadanie 3
+
+1. create table izba (adres_budynku varchar(255), nazwa_izby varchar(255), metraz int unsigned, wlasciciel int, primary key (adres_budynku, nazwa_izby), foreign key (wlasciciel) references postac(id_postaci));
+2. alter table izba add kolor varchar(255) after metraz;
+   alter table izba alter kolor set default "czarny";
+3. insert into izba values ("Turkowskiego", "spizarnia", 100, "czarny" ,1);
+Zadanie 4
+2. insert into przetwory values (1, 1999, 1, "bigos", "papryczka chilli", 2);
+
+
+Zadanie 5
+
+1.	insert into postac values (default, "Buba", "viking", "1999-12-12", 12);
+	insert into postac values (default, "Duba", "viking", "1999-12-12", 12);
+	insert into postac values (default, "Suba", "viking", "1999-12-12", 12);
+	insert into postac values (default, "Kuba", "viking", "1999-12-12", 12);
+	insert into postac values (default, "Muba", "viking", "1999-12-12", 12);
+2.	create table statek (nazwa_statku varchar(255), rodzaj_statku enum("barka","galeon"), data_wodowania date, max_ladownosc int unsigned, primary key (nazwa_statku));
+3.	insert into statek values ("Karyna", "barka", "2003-11-12", 1200);
+	insert into statek values ("Katarzyna", "galeon", "2005-12-05", 600);
+4.	alter table postac add column funkcja varchar(222);
+5. 	update postac set funkcja = "kapitan" where nazwa = "Bjorn";
+6.	alter table postac add column statek varchar(255);
+	alter table postac add foreign key (statek) references statek(nazwa_statku);
+7.	update postac set statek = "Katarzyna" where rodzaj = "viking";
+	update postac set statek = "Karyna" where rodzaj = "ptak";
+8.	delete from izba where nazwa_izby = "spizarnia";
+9.	drop table izba;
+
+LAB 4
+
+Zadanie 1
+
+1.	nie fikuśnie
+2.	alter table walizka drop foreign key walizka_ibfk_1;
+	

@@ -26,3 +26,18 @@ select nazwa from zasob where month(dataPozyskania) between 7 and 8;
 # b)
 select nazwa from zasob where rodzaj is not null order by waga asc;
 # c)
+select nazwa, dataUr from kreatura order by dataUr desc limit 5;
+#Zadanie 4
+# a)
+select distinct rodzaj from zasob;
+# b)
+select concat(nazwa,' ', rodzaj) as nazwaRodzaj from kreatura where rodzaj like 'wi%';
+# c)
+select nazwa, ilosc * waga  from zasob where year(dataPozyskania) in (2000, 2007);
+# Zadanie 5
+# a)
+select waga * 0.7 as netto, waga * 0.3 as odpadki from zasob where rodzaj like 'jedzenie';
+# b)
+select nazwa from zasob where rodzaj is null;
+# c)
+select distinct rodzaj from zasob where nazwa like 'Ba%' and nazwa like '%os' order by rodzaj asc;

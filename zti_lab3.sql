@@ -4,6 +4,8 @@ SELECT dzial.nazwa, COUNT(pracownik.id_pracownika) FROM dzial INNER JOIN pracown
 select k.nazwa_kategori, sum(sm.ilosc) from kategoria k inner join towar t on k.id_kategori = t.kategoria join stan_magazynowy sm on t.id_towaru = sm.towar group by k.nazwa_kategori;
 # 6)
 select round(avg(pensja), 2) as srednia_pensja from pracownik;
+# 5)
+select k.nazwa_kategori, t.nazwa_towaru from kategoria k join towar t on k.id_kategori = t.kategoria;
 # 7)
 select round(avg(pensja), 2) as srednia_pensja from pracownik where year(curdate()) - year(data_zatrudnienia) > 5;
 # 8)

@@ -7,7 +7,7 @@ select round(avg(pensja), 2) as srednia_pensja from pracownik;
 # 5)
 select k.nazwa_kategori, t.nazwa_towaru from kategoria k join towar t on k.id_kategori = t.kategoria;
 # 7)
-select round(avg(pensja), 2) as srednia_pensja from pracownik where year(curdate()) - year(data_zatrudnienia) > 5;
+select round(avg(pensja), 2) as srednia_pensja from pracownik where year(curdate()) - year(data_zatrudnienia) > 4;
 # 8)
 select t.nazwa_towaru, sum(pz.ilosc) from pozycja_zamowienia pz join towar t on pz.towar = t.id_towaru group by towar order by sum(ilosc) desc limit 10;
 # 9)

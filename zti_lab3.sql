@@ -11,6 +11,6 @@ select round(avg(pensja), 2) as srednia_pensja from pracownik where year(curdate
 # 8)
 select t.nazwa_towaru, sum(pz.ilosc) from pozycja_zamowienia pz join towar t on pz.towar = t.id_towaru group by towar order by sum(ilosc) desc limit 10;
 # 9)
-select z.numer_zamowienia ,sum(pz.cena) from zamowienie z join pozycja_zamowienia pz on z.id_zamowienia = pz.zamowienie where month(data_zamowienia) < 5 and year(data_zamowienia) = 2017 group by data_zamowienia;
+select z.numer_zamowienia ,sum(pz.cena * pz.ilosc) from zamowienie z join pozycja_zamowienia pz on z.id_zamowienia = pz.zamowienie where month(data_zamowienia) < 5 and year(data_zamowienia) = 2017 group by data_zamowienia;
 # 10)
-select p.imie, p.nazwisko, sum(pz.cena) as suma from pracownik p join zamowienie z on p.id_pracownika = z.pracownik_id_pracownika join pozycja_zamowienia pz on z.id_zamowienia = pz.zamowienie group by z.pracownik_id_pracownika order by suma desc;
+select p.imie, p.nazwisko, sum(pz.cena * pz.ilosc) as suma from pracownik p join zamowienie z on p.id_pracownika = z.pracownik_id_pracownika join pozycja_zamowienia pz on z.id_zamowienia = pz.zamowienie group by z.pracownik_id_pracownika order by suma desc;
